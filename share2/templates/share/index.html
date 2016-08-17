@@ -1,0 +1,78 @@
+
+<html>
+<head>
+  <title>平台</title>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/share/static/share/style.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="/share/static/share/ol.css"/>
+  <link rel="stylesheet" href="/share/static/share/ol3-layerswitcher.css"/>
+  <link rel="stylesheet" href="/share/static/share/mappopup.css"/>
+</head>
+
+<body >
+  <div id="container">templates/static/
+       <div id="header">
+      <div id="header1"><h1 >煤矿事故大数据平台</h1></div>
+      <div id="header2">
+         <button id="submit1" class="btn" >登录</button>
+          <button id="submit2" class="btn"onclick="a()" >注册</button>
+      </div>
+      </div>
+      <div class="menu">
+           <ul><li><a  class="hide" href="{% url 'share:index' %}">首页</a></li></ul>
+           <ul><li><a href="{% url 'share:data' %}" >数据</a></li></ul>
+           <ul><li><a href="{% url 'share:service' %}" >服务</a></li></ul>
+           <ul><li><a href="{% url 'share:news' %}" >动态</a></li></ul>
+      </div>
+      <div id="maincontent">
+           <div id="map">
+                <div id="popup" class="ol-popup">
+                     <div id="popup-content">
+                      </div>
+                  <button id="popup-closer" class="ol-popup-closer">X</button>
+                     <div id="fname">
+                 	  </div>
+            </div> 
+     </div>
+    </div>
+    <div id="sidebar">
+       <div class="top"></div>
+       <div class="middle"></div>
+       <div class="buttom"></div>
+    </div>
+      <div class="news">
+      	<div class="accident-news">
+      		<p>事故通报</p>
+      		<p>......</p>
+      	</div>
+      	<div class="accident-knowledge">
+      		<p>事故知识</p>
+      		<p>......</p>
+      	</div>
+
+      	<div class="accident-low">
+      		<p>事故法律</p>
+      		<p>......</p>
+      	</div>
+      </div>
+    <div class="footer">
+      Inspired by：
+      <a href="http://geoserver.org/" target="_blank">GeoServer</a>  |
+      <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> |
+    </div>
+    <div style="padding:10px; text-align:left; ">
+      <p>版权所有 中国科学院地理科学与资源研究所资源与环境信息系统国家重点实验室 <a href="http://my.oschina.net/u/2376641/blog" target="_blank">张英慧</a>      Copyright © 2015-2018 <a href="mailto:zyhsdau@163.com">与我联系</a></p>
+    </div>
+  </div>
+  <script type = 'text/javascript' src='/share/static/share/jquery-1.11.3.min.js'></script>
+  <script type = 'text/javascript' src='/share/static/share/ol.js'></script>
+	<script src="/share/static/share/ol3-layerswitcher.js" type="text/javascript"></script>   
+<script src="/share/static/share/road.js" type="text/javascript"></script>
+<script type="text/javascript">
+function a(){
+ window.open("{% url 'share:register' %}",'_blank') 
+}
+</script>
+</body>
+</html>

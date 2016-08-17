@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>注册</title>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="ol.css">
+  <link rel="stylesheet" href="ol3-layerswitcher.css">
+  <link rel="stylesheet" href="mappopup.css">
+</head>
+<style>
+    .k-dropdown-wrap, .k-autocomplete { margin-top: 10px; }
+    
+    #logo { width: 850px; height: 70px;background: url(/nRegister/res/images/logo.png) no-repeat left center; margin:auto;
+      color:#666666; }
+    #logo a { margin-left: 755px; color:#005AA0; height: 70px; line-height: 70px;}
+    input { width: 220px; border: 1px solid #DDDDDD; font-size: 14px; height: 24px; line-height: 24px;
+      padding: 4px 20px 4px 3px;}
+    input:hover { border: 1px solid #7ABD54; }
+    #link { border-top: 1px solid #DDDDDD; width: 850px; height: 100px; margin: auto; line-height: 30px; text-align: center;}
+    
+    #registerWrap { width: 900px; height: 600px; margin: 20px auto 30px; border-top: 1px solid #DBE0E3; padding-top: 30px;}
+    #registerWrap .leftDiv {width: 580px; height: 100%; border-right: 1px solid #DBE0E3; margin-left: 20px;}
+    #registerWrap .rightDiv {width: 250px; height: 100%; font-size: 14px; color: #666666;}
+    #registerWrap .rightDiv p { margin-top: 140px; margin-bottom: 10px; }
+    #registerWrap .rightDiv p a { color: #0000CC; }
+    tr { height: 50px; }
+    tr>:first-child { font-size: 14px; color: #666666; width: 70px; }
+    label {color: #F9A7A7; padding-left: 6px; }
+    #registerBtn { width: 245px; margin: 20px auto 10px; font-weight: bold;}
+    
+    #otherWay { width: 270px;margin:auto; color: #999999; font-size: 12px; }
+    #otherWay span {line-height: 27px;}
+    #otherWay div {border: 1px solid #DDDDDD; text-align: center;}
+    #otherWay a { display: inline-block; padding-left: 20px; color: #999999;}
+    #mailBox { background: url(/nRegister/res/images/MailBox.png) no-repeat left center; margin: 5px;}
+    #qq { background: url(/nRegister/res/images/qq.png) no-repeat left center; }
+    
+    #title { font-family: "微软雅黑"; font-size: 21px; line-height: 34px; margin-left: 100px; margin-bottom: 15px; }
+    #title span { font-size: 12px; color: #FF6600; }
+  </style>
+
+<body >
+  <div id="container">
+    <div id="header">
+      <div id="header1"><h1 >煤矿事故大数据平台</h1>
+      </div>
+      <div id="header2">
+        <button id="submit1" class="btn" >登录</button>
+        <button id="submit2" class="btn" >注册</button>
+      </div>
+    </div>
+    <div class="menu">
+     <ul><li><a  class="hide" href="http://localhost:8080/myucas/html/index.html">首页</a></li></ul>
+     <ul><li><a href="http://www.gucas.ac.cn/" target="_blank">国科大</a></li></ul>
+     <ul><li><a href="http://cre.ucas.ac.cn/Pages/default.aspx" target="_blank">资环学院</a></li></ul>
+     <ul><li><a href="http://www.igsnrr.ac.cn/" target="_blank">地理所</a></li></ul>
+   </div>
+   <div class="regis">
+   <div id='registerWrap' class='floatWrap'>
+    <div class='float-left leftDiv'>
+      <p id='title'>用户注册<span> ( * 以下项均为必填项 ) </span></p>
+      
+      <div id='error'></div>
+      
+      
+      <form name='f' id="myform" action='/nRegister/register' method='POST' onsubmit="return md5pwd();">
+      
+      
+      <table>
+        <tr>
+          <td>用户名称</td>
+          <td><input id='username' name='username' type='text' /></td>
+          <td><label id='usernameLabel'>* 4-20位，必须由大小写字母、数字、下划线组成</label></td>
+        </tr>
+        <tr>
+          <td>输入密码 </td>
+          <td><input id='password1' name='password1' type='password' /></td>
+          <td><label id='password1Label'>* 6-20位，由大小写字母、数字、下划线组成</label></td>
+        </tr>
+        <tr>
+          <td>确认密码 </td>
+          <td><input id='password2' name='password2' type='password' /></td>
+          <td><label id='password2Label'>* 请再次输入密码</label></td>
+        </tr>
+        <tr>
+          <td>真实姓名 </td>
+          <td><input id='realName' name='realName'type='text' /></td>
+          <td><label id='realNameLabel'>* 必填</label></td>
+        </tr>
+        <tr>
+          <td>用户邮箱 </td>
+          <td><input id='email' name='email' type='text' /></td>
+          <td><label id='emailLabel'>* 必填</label></td>
+        </tr>
+        <tr>
+          <td>移动电话 </td>
+          <td><input id='mobile' name='mobile' type='text' /></td>
+          <td><label id='mobileLabel'>* 必填</label></td>
+        </tr>
+        <tr>
+          <td>工作单位 </td>
+          <td><input id='workFor' name='workFor' type='text' /></td>
+          <td><label id='workForLabel'>* 必填</label></td>
+        </tr>
+        <tr>
+          <td>职业性质 </td>
+          <td><input id='profession' name='profession' style='width: 245px;'/></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>所在地区 </td>
+          <td class='floatWrap'>
+            <div class='float-left' style='width: 60px;'>
+              <input id='country' name='country' style='width: 60px;'/>
+            </div>
+            <div class='float-right' style='width: 175px; '>
+              <div id='internalWrap'> <input id='province' name='province' style='width: 175px;'/> </div>
+              <div id='abroadWrap' style='display:none; '><input id="abroadCountry" name='abroadCountry' style='width: 175px;' /></div>
+            </div>
+          </td>
+          <td><label id='areaLabel'>* 必填</label></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+          <input id='service' name='service' type="hidden" value="http://www2.geodata.cn"/>
+          <input id='password' name='password' type='hidden' />
+          <input id='area' name='area' type='hidden' value=""/>
+          <input id='registerBtn' name='registerBtn' class="button-1" type="button" value="注&nbsp;&nbsp;&nbsp;&nbsp;册"/>
+          
+          </td>
+          <td></td>
+        </tr>
+      </table>
+      
+
+      </form>
+    </div>
+    
+
+    <div class="styled-select">
+     <div id="ty">
+       <div  id="user1"><p>选择用户类型</p></div>
+       <div id="objname">
+        <select >
+          <option value="普通用户">普通用户</option>
+          <option value="管理员">管理员</option>
+          <!-- <option value="超市">超市</option> -->
+        </select>
+</div>
+    </div>
+    <div class="registerform">
+     <div id="user1"> 
+       <p>用户名: <input id="user" type="text" name="userid"/></p>
+     </div>
+     <div id="user1">
+       <p>密    码: <input id="pass" type="text" name="password"/></p>
+     </div>
+     <div id="user1">
+     <input type="submit" value="Submit" />
+   </div>
+   </div>
+ </div>
+</div>
+<div class="footer">
+  Inspired by：
+  <a href="http://geoserver.org/" target="_blank">GeoServer</a>  |
+  <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> |
+</div>
+<div style="padding:10px; text-align:left; ">
+  <p>版权所有 中国科学院地理科学与资源研究所资源与环境信息系统国家重点实验室 <a href="http://my.oschina.net/u/2376641/blog" target="_blank">张英慧</a> Copyright  &copy;      2015-2018 <a href="mailto:zyhsdau@163.com">与我联系</a></p>
+
+</div>
+</div>
+</body>
+
+
